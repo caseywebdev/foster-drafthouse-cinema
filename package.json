@@ -1,0 +1,26 @@
+{
+  "private": true,
+  "dependencies": {
+    "babel-plugin-transform-runtime": "6.23.0",
+    "babel-preset-env": "1.6.1",
+    "babel-preset-react": "6.24.1",
+    "babel-preset-stage-0": "6.24.1",
+    "cogs-transformer-autoprefixer": "3.0.1",
+    "cogs-transformer-babel": "3.0.0",
+    "cogs-transformer-clean-css": "3.1.0",
+    "cogs-transformer-concat-commonjs": "3.2.1",
+    "cogs-transformer-json": "3.0.0",
+    "cogs-transformer-replace": "3.0.0",
+    "cogs-transformer-sass": "3.0.1",
+    "cogs-transformer-uglify-js": "3.1.1",
+    "cogs": "4.1.1",
+    "express": "4.16.2",
+    "fastclick": "1.0.6",
+    "react-dom": "16.2.0",
+    "react": "16.2.0",
+    "socket.io-client": "2.0.4",
+    "socket.io": "2.0.4",
+    "underscore": "1.8.3",
+    "watchy": "0.8.0"
+  }
+}
