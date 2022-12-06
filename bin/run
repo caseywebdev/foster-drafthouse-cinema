@@ -1,0 +1,11 @@
+#!/bin/sh -e
+
+CMD='node api'
+
+if [ "$WATCH" = "1" ]; then
+  bin/build &
+  bin/livereload &
+  exec node_modules/.bin/watchy -w 'api/**/*.js' -d 0.1 -W 10 -- $CMD
+else
+  exec $CMD
+fi

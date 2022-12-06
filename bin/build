@@ -1,0 +1,10 @@
+#!/bin/sh -e
+
+CMD='node_modules/.bin/cogs'
+
+if [ "$WATCH" = "1" ]; then
+  # https://github.com/tailwindlabs/tailwindcss/blob/429fe07a5fe871381dc136cdad80cb052c5df871/src/util/log.js#L6
+  TAILWIND_MODE=watch JEST_WORKER_ID=1 exec $CMD -w 'app/**'
+else
+  exec $CMD
+fi

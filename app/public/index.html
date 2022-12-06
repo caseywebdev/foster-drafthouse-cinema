@@ -1,0 +1,22 @@
+<!doctype html>
+<html class='h-full'>
+<meta
+  name='viewport'
+  content='
+    initial-scale=1.0,
+    maximum-scale=1.0,
+    minimum-scale=1.0,
+    shrink-to-fit=no,
+    user-scalable=no,
+    viewport-fit=cover,
+    width=device-width'
+>
+<style><%= await readFile('dist/index.css') %></style>
+<% if (process.env.WATCH === '1') { %>
+  <script src='http://localhost:35729/livereload.js'></script>
+<% } %>
+<title>Foster Drafthouse Cinema</title>
+<body class='bg-stone-800 text-stone-100 break-words h-full overflow-y-scroll'>
+  <div id='root' class='flex flex-col min-h-full' />
+  <script><%= await readFile('dist/index.js') %></script>
+</body>

@@ -1,0 +1,3 @@
+#!/bin/sh -e
+
+exec node_modules/.bin/watchy -k -- node_modules/.bin/livereload dist -w 1000

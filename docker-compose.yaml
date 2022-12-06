@@ -1,0 +1,15 @@
+services:
+  app:
+    build: .
+    environment:
+      TMDB_API_KEY:
+      WATCH: 1
+    ports:
+    - 80:80
+    - 35729:35729
+    volumes:
+    - ./api:/code/api
+    - ./app:/code/app
+    - ./bin:/code/bin
+    - ./cogs.js:/code/cogs.js
+    - ./package.json:/code/package.json
