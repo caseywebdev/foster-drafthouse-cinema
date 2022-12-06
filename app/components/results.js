@@ -84,7 +84,9 @@ export default ({ state }) => {
       }
 
       setVelocity(_velocity);
-      setPosition((position + _velocity) % allVotes.length);
+      setPosition(
+        allVotes.length ? (position + _velocity) % allVotes.length : 0
+      );
     });
   });
 
