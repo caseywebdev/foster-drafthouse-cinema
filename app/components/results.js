@@ -95,7 +95,7 @@ export default ({ state }) => {
           <User
             key={user.id}
             user={user}
-            activeVoteIndex={activeVote.userId === user.id && activeVote.index}
+            activeVoteIndex={activeVote?.userId === user.id && activeVote.index}
           />
         ))}
       </div>
