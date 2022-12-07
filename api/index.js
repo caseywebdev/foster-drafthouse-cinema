@@ -42,7 +42,7 @@ wss.on('connection', ws => {
     },
 
     setUserName: ({ name }) => {
-      user.name = name?.trim();
+      user.name = name;
     },
 
     resetUserVotes: ({ id }) => {
