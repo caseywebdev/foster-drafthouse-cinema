@@ -23,8 +23,8 @@ export default () => {
 
   return (
     <>
-      <div className='shrink-0 pt-6 px-6 pb-4 select-none'>
-        <Logo className='max-h-32' />
+      <div className='shrink-0 pt-6 px-6 pb-4 select-none text-center'>
+        <Logo className='inline-block max-h-32' />
       </div>
       {!user ? (
         <div className='grow min-h-0 flex items-center justify-center font-bold uppercase'>

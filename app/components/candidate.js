@@ -28,7 +28,9 @@ export default ({
       </div>
       <div>
         {_.times(5, i => (
-          <span className={clsx(i >= votes && 'opacity-0')}>👍</span>
+          <span key={i} className={clsx(i >= votes && 'opacity-0')}>
+            👍
+          </span>
         ))}
       </div>
     </div>
