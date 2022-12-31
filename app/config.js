@@ -6,7 +6,8 @@ const { localStorage } = globalThis;
 let userId = localStorage.userId;
 if (!userId) userId = localStorage.userId = createId();
 
-const currentGroup = 'december';
+// main, october, december
+const currentGroup = 'main';
 
 export default {
   movies: movies.filter(({ groups }) => groups.includes(currentGroup)),
