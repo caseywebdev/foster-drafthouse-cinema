@@ -7,7 +7,7 @@ let userId = localStorage.userId;
 if (!userId) userId = localStorage.userId = createId();
 
 // main, october, december
-const currentGroup = 'main';
+const currentGroup = 'october';
 
 export default {
   movies: movies.filter(({ groups }) => groups.includes(currentGroup)),
