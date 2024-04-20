@@ -14,7 +14,7 @@ export default ({ user }) => (
       <input
         className={inputClassName}
         value={user.name}
-        onChange={({ target: { value } }) =>
+        onInput={({ target: { value } }) =>
           ws.send({ type: 'setUserName', args: { name: value } })
         }
       />
@@ -24,9 +24,6 @@ export default ({ user }) => (
         <Candidate
           movie={movie}
           key={movie.id}
-          vote={() => {
-            ws.send({ type: 'vote', args: { id: movie.id } });
-          }}
           votes={user.votes.filter(id => id === movie.id).length}
         />
       ))}

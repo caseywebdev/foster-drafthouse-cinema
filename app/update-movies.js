@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 
 import { ESLint } from 'eslint';
 
-import savedMovies from 'app/constants/movies.js';
+import savedMovies from '#app/constants/movies.js';
 
 const { console, fetch, process } = globalThis;
 

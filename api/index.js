@@ -32,10 +32,6 @@ wss.on('connection', ws => {
   const actions = {
     load: () => {},
 
-    setEmperorName: ({ emperorName }) => {
-      user.emperorName = emperorName;
-    },
-
     setUserId: ({ id }) => {
       user = state.usersById[id] ??= { id, votes: [] };
       user.name ??= actorNames[Math.floor(Math.random() * actorNames.length)];

@@ -11,9 +11,7 @@ ENV \
 COPY package.json ./
 RUN \
   npm install && \
-  npm cache clean --force && \
-  ln -s /code/api node_modules/api && \
-  ln -s /code/app node_modules/app
+  npm cache clean --force
 
 COPY bin bin
 COPY api api

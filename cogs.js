@@ -12,7 +12,7 @@ const exec = promisify(child_process.exec);
 const brotliCompress = promisify(zlib.brotliCompress);
 
 const watch = env.WATCH === '1';
-const minify = env.MINIFY === '1';
+const minify = true || env.MINIFY === '1';
 const target = 'es2020';
 const minifyJs = {
   name: 'esbuild',
@@ -45,12 +45,10 @@ export default {
         name: 'esbuild',
         only: '**/*.+(js|svg)',
         options: {
-          define: {
-            'process.env.NODE_ENV': minify ? '"production"' : '"development"'
-          },
           format: 'cjs',
           jsx: 'automatic',
           jsxDev: !minify,
+          jsxImportSource: '#app/tbd',
           loader: 'jsx',
           target
         }
@@ -58,7 +56,7 @@ export default {
       {
         name: 'concat-commonjs',
         only: '**/*.+(js|svg)',
-        options: { entry: 'app/index.js', resolverGlobal: '_ep' }
+        options: { entry: 'app/index.js', resolverGlobal: '_fdc' }
       },
       minify ? { ...minifyJs, only: '**/*.+(js|svg)' } : [],
       {

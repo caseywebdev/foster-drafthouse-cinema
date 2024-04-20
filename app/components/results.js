@@ -1,15 +1,14 @@
-import { useEffect, useLayoutEffect, useState } from 'react';
-import _ from 'underscore';
+import config from '#app/config.js';
+import ws from '#app/constants/ws.js';
+import cx from '#app/functions/cx.js';
+import indexBy from '#app/functions/index-by.js';
+import tbd from '#app/tbd/index.js';
 
-import config from 'app/config.js';
-import ws from 'app/constants/ws.js';
-import clsx from 'app/functions/clsx.js';
-
-const { document, requestAnimationFrame, window } = globalThis;
+const { document, window } = globalThis;
 
 const { movies } = config;
 
-const moviesById = _.indexBy(movies, 'id');
+const moviesById = indexBy(movies, ({ id }) => id);
 
 const acceleration = 0.001;
 
@@ -19,7 +18,7 @@ const drag = 0.995;
 
 const Movie = ({ isActive, movie }) => (
   <a
-    className={clsx(
+    className={cx(
       'block flex-1 rounded bg-cover bg-center transition',
       !isActive && 'scale-90 opacity-10'
     )}
@@ -50,16 +49,16 @@ const User = ({ activeVoteIndex, user: { id, name, votes } }) =>
   );
 
 export default ({ state }) => {
-  const [isAccelerating, setIsAcelerating] = useState(0);
-  const [velocity, setVelocity] = useState(0);
-  const [position, setPosition] = useState(0);
+  const [isAccelerating, setIsAcelerating] = tbd.useState(0);
+  const [velocity, setVelocity] = tbd.useState(0);
+  const [position, setPosition] = tbd.useState(0);
   const allVotes = Object.values(state.usersById).flatMap(
     ({ id: userId, votes }) =>
       votes.map((movieId, index) => ({ userId, movieId, index }))
   );
   const activeVote = allVotes[Math.floor(position) % allVotes.length];
 
-  useEffect(() => {
+  tbd.useEffect(() => {
     document.addEventListener('touchstart', () => setIsAcelerating(true));
     document.addEventListener('touchend', () => setIsAcelerating(false));
     document.addEventListener('keydown', ({ key }) => {
@@ -70,24 +69,20 @@ export default ({ state }) => {
     });
   }, []);
 
-  useLayoutEffect(() => {
-    requestAnimationFrame(() => {
-      let _velocity = velocity;
-      if (isAccelerating) {
-        _velocity = Math.min(_velocity + acceleration, maxVelocity);
-      } else {
-        _velocity *= drag;
-        if (velocity > 0 && _velocity < 0.002) {
-          _velocity = 0;
-          window.open(`https://www.themoviedb.org/movie/${activeVote.movieId}`);
-        }
+  tbd.useEffect(() => {
+    let _velocity = velocity;
+    if (isAccelerating) {
+      _velocity = Math.min(_velocity + acceleration, maxVelocity);
+    } else {
+      _velocity *= drag;
+      if (velocity > 0 && _velocity < 0.004) {
+        _velocity = 0;
+        window.open(`https://www.themoviedb.org/movie/${activeVote.movieId}`);
       }
+    }
 
-      setVelocity(_velocity);
-      setPosition(
-        allVotes.length ? (position + _velocity) % allVotes.length : 0
-      );
-    });
+    setVelocity(_velocity);
+    setPosition(allVotes.length ? (position + _velocity) % allVotes.length : 0);
   });
 
   return (

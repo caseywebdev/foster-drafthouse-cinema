@@ -1,3 +1,4 @@
+/** @param {(string | false | 0 | null | undefined)[]} args */
 export default (...args) => {
   let className;
   for (const arg of args) {

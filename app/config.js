@@ -1,5 +1,5 @@
-import movies from 'app/constants/movies.js';
-import createId from 'app/functions/create-id.js';
+import movies from '#app/constants/movies.js';
+import createId from '#app/functions/create-id.js';
 
 const { localStorage } = globalThis;
 
