@@ -3,7 +3,7 @@ import http from 'node:http';
 
 import { WebSocketServer } from 'ws';
 
-import actorNames from 'api/constants/actor-names.js';
+import actorNames from '#api/constants/actor-names.js';
 
 const { clearInterval, clearTimeout, setInterval, setTimeout } = globalThis;
 

@@ -1,6 +1,6 @@
-import Candidate from 'app/components/candidate.js';
-import config from 'app/config.js';
-import ws from 'app/constants/ws.js';
+import Candidate from '#app/components/candidate.js';
+import config from '#app/config.js';
+import ws from '#app/constants/ws.js';
 
 const { movies } = config;
 
