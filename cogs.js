@@ -12,7 +12,7 @@ const exec = promisify(child_process.exec);
 const brotliCompress = promisify(zlib.brotliCompress);
 
 const watch = env.WATCH === '1';
-const minify = true || env.MINIFY === '1';
+const minify = env.MINIFY === '1';
 const target = 'es2020';
 const minifyJs = {
   name: 'esbuild',

@@ -213,11 +213,7 @@ const reconcile = (vnode, children) => {
 };
 
 const render = (def, node) =>
-  update({
-    node,
-    path: [],
-    props: { children: def }
-  });
+  update({ node, path: [], props: { children: def } });
 
 let currentVnode = null;
 let effectIndex = 0;
