@@ -30,12 +30,6 @@ const createContext = defaultValue => {
   return Context;
 };
 
-/** @param {{ children: unknown; fallback: ({ error: Error }) => unknown }} props */
-const ErrorBoundary = ({ children }) => {
-  currentVnode.errorBoundary = currentVnode;
-  return children;
-};
-
 const isEmpty = value => value == null || value === false || value === '';
 
 const emptyDef = { props: {} };
@@ -190,7 +184,6 @@ const reconcile = (vnode, children) => {
       childVnode = {
         contexts: vnode.contexts,
         child: null,
-        errorBoundary: vnode.errorBoundary,
         deleted: false,
         effects: null,
         key: def.key,
@@ -279,9 +272,7 @@ const useEffect = (fn, deps) => {
 
   if (depsChanged(effect.deps, deps)) {
     effect.after = () => {
-      const before = bounded(vnode, () => fn());
-      console.log(before);
-      effect.before = before && (() => bounded(vnode, before));
+      effect.before = fn();
     };
     effect.deps = deps;
   }
@@ -363,25 +354,6 @@ const queueUpdate = vnode => {
   vnode.queued = true;
 };
 
-const bounded = (vnode, fn) => {
-  try {
-    return fn();
-  } catch (error) {
-    const errorBoundary = vnode.parent?.errorBoundary;
-    if (errorBoundary) {
-      errorBoundary.props.children = jsx(errorBoundary.props.fallback, {
-        error
-      });
-      queueUpdate(errorBoundary);
-    } else {
-      throw new Error(
-        `There was an exception thrown while rendering and no ErrorBoundary has been provided: ${error}`,
-        { cause: error }
-      );
-    }
-  }
-};
-
 const update = root => {
   let vnode = root;
   const nodeStack = [root.prevSiblingNode ?? null];
@@ -395,7 +367,7 @@ const update = root => {
       reconcile(
         vnode,
         typeof vnode.type === 'function'
-          ? bounded(vnode, () => vnode.type(vnode.props))
+          ? vnode.type(vnode.props)
           : vnode.props.children
       );
       currentVnode = null;
@@ -458,7 +430,6 @@ const update = root => {
 
 export default {
   createContext,
-  ErrorBoundary,
   Fragment,
   jsx,
   jsxDEV: jsx,

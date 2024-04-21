@@ -1,4 +1,3 @@
-import TestContext from '#app/constants/test-context.js';
 import ws from '#app/constants/ws.js';
 import tbd from '#app/tbd/index.js';
 
@@ -19,7 +18,6 @@ export default tbd.memo(
         ws.send({ type: 'vote', args: { id } });
       })}
     >
-      {tbd.useContext(TestContext)}
       <div className='shrink-0 w-1/4 max-w-xs'>
         <img src={posterUrl} />
       </div>
