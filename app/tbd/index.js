@@ -86,7 +86,11 @@ const updateNode = (node, prev, next) => {
             if (!(key in next.style)) node.style[key] = '';
           }
         }
-        for (const key in next.style) node.style[key] = next.style[key];
+        for (const key in next.style) {
+          let value = next.style[key];
+          if (typeof value === 'number') value += 'px';
+          node.style[key] = next.style[key] ?? '';
+        }
       } else if (key.startsWith('on')) {
         if (typeof prev[key] === 'function') {
           node.removeEventListener(key.slice(2).toLowerCase(), prev[key]);

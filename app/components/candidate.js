@@ -1,4 +1,5 @@
 import ws from '#app/constants/ws.js';
+import cx from '#app/functions/cx.js';
 import tbd from '#app/tbd/index.js';
 
 const formatMinutes = minutes => {
@@ -28,8 +29,10 @@ export default tbd.memo(
           {releaseDate.slice(0, 4)} &bull; {formatMinutes(runtime)}
         </div>
         <div>
-          {Array.from({ length: votes }, (_, i) => (
-            <span key={i}>👍</span>
+          {Array.from({ length: 5 }, (_, i) => (
+            <span key={i} className={cx(i >= votes && 'invisible')}>
+              👍
+            </span>
           ))}
         </div>
       </div>
