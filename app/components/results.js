@@ -20,10 +20,10 @@ const Movie = ({ isActive, movie }) => (
   <a
     className={cx(
       'block flex-1 rounded bg-cover bg-center transition',
-      !isActive && 'scale-90 opacity-10'
+      isActive ? 'shadow-2xl' : 'scale-90 opacity-10 shadow'
     )}
-    href={`https://www.themoviedb.org/movie/${movie?.id}`}
-    style={{ backgroundImage: `url('${movie?.posterUrl}')` }}
+    href={`https://www.themoviedb.org/movie/${movie.id}`}
+    style={{ backgroundImage: `url('${movie.posterUrl}')` }}
   />
 );
 

@@ -14,13 +14,13 @@ export default tbd.memo(
     votes
   }) => (
     <div
-      className='group cursor-pointer flex rounded overflow-hidden bg-stone-900 hover:bg-black select-none'
+      className='relative p-2 gap-2 group transition cursor-pointer flex rounded shadow bg-stone-900 select-none hover:bg-black hover:scale-[102%] active:scale-[101%] hover:shadow-2xl hover:z-10'
       onClick={tbd.useCallback(() => {
         ws.send({ type: 'vote', args: { id } });
       })}
     >
       <div className='shrink-0 w-1/4 max-w-xs'>
-        <img src={posterUrl} />
+        <img src={posterUrl} className='rounded' />
       </div>
       <div className='grow min-w-0 p-2 space-y-1'>
         <div className='leading-tight text-lg font-bold'>{title}</div>
