@@ -6,27 +6,25 @@ const jsxs = jsx;
 
 const Fragment = props => props.children;
 
-const createContext = defaultValue => {
-  const Context = {
-    defaultValue,
-    Provider: ({ value, children }) => {
-      const initialRef = useRef(true);
-      currentVnode.contexts = new Map(currentVnode.contexts);
-      if (initialRef.current) {
-        currentVnode.contexts.set(Context, { vnodes: new Set(), value });
-        initialRef.current = false;
-      }
-      const existing = currentVnode.contexts.get(Context);
-      if (value !== existing.value) {
-        currentVnode.contexts.set(Context, value);
-        existing.vnodes.forEach(vnode => {
-          vnode.shouldUpdate = true;
-        });
-      }
-
-      return children;
+const createContext = () => {
+  const Context = ({ value, children }) => {
+    const initialRef = useRef(true);
+    currentVnode.contexts = new Map(currentVnode.contexts);
+    if (initialRef.current) {
+      currentVnode.contexts.set(Context, { vnodes: new Set(), value });
+      initialRef.current = false;
     }
+    const existing = currentVnode.contexts.get(Context);
+    if (value !== existing.value) {
+      currentVnode.contexts.set(Context, value);
+      existing.vnodes.forEach(vnode => {
+        vnode.shouldUpdate = true;
+      });
+    }
+
+    return children;
   };
+
   return Context;
 };
 
@@ -296,19 +294,17 @@ const useCallback = fn => {
   ).current;
 };
 
-const defaultAreEqual = (prev, next) => {
+const defaultIsEqual = (prev, next) => {
   for (const key in prev) if (prev[key] !== next[key]) return false;
   for (const key in next) if (!(key in prev)) return false;
   return true;
 };
 
 const memo =
-  (Component, areEqual = defaultAreEqual) =>
+  (Component, isEqual = defaultIsEqual) =>
   props => {
     const { current } = useRef({ props: null });
-    if (!current.props || !areEqual(current.props, props)) {
-      current.props = props;
-    }
+    if (!current.props || !isEqual(current.props, props)) current.props = props;
     return jsx(Component, current.props);
   };
 
@@ -317,7 +313,16 @@ const useContext = Context => {
   const context = vnode.contexts?.get(Context);
   context?.vnodes.add(vnode);
   useEffect(() => () => context?.vnodes.delete(vnode), []);
-  return context ? context.value : Context.defaultValue;
+  return context?.value;
+};
+
+const batchComparator = (a, b) => {
+  for (let i = 0; i < a.path.length; ++i) {
+    if (i === b.path.length) return 1;
+
+    if (a.path[i] !== b.path[i]) return a.path[i] - b.path[i];
+  }
+  return -1;
 };
 
 let updateQueue = [];
@@ -326,16 +331,8 @@ const queueUpdate = vnode => {
 
   if (updateQueue.length === 0) {
     requestAnimationFrame(() => {
-      const batch = updateQueue;
+      const batch = updateQueue.sort(batchComparator);
       updateQueue = [];
-      batch.sort((a, b) => {
-        for (let i = 0; i < a.path.length; ++i) {
-          if (i === b.path.length) return 1;
-
-          if (a.path[i] !== b.path[i]) return a.path[i] - b.path[i];
-        }
-        return -1;
-      });
       for (const vnode of batch) {
         vnode.shouldUpdate = true;
         vnode.updated = false;
