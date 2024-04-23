@@ -1,4 +1,4 @@
-import { render } from 'vidore';
+import { render } from 'endr';
 
 import Root from '#app/components/root.js';
 

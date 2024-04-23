@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'vidore';
+import { useEffect, useState } from 'endr';
 
 import Ballot from '#app/components/ballot.js';
 import Logo from '#app/components/logo.svg';

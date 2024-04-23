@@ -47,7 +47,7 @@ export default {
         options: {
           format: 'cjs',
           jsx: 'automatic',
-          jsxImportSource: 'vidore',
+          jsxImportSource: 'endr',
           loader: 'jsx',
           target
         }

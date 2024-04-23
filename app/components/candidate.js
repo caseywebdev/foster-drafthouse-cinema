@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'vidore';
+import { memo, useCallback } from 'endr';
 
 import ws from '#app/constants/ws.js';
 import cx from '#app/functions/cx.js';

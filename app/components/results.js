@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'vidore';
+import { useEffect, useState } from 'endr';
 
 import config from '#app/config.js';
 import ws from '#app/constants/ws.js';
