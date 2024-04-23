@@ -8,6 +8,7 @@ import actorNames from '#api/constants/actor-names.js';
 const { clearInterval, clearTimeout, setInterval, setTimeout } = globalThis;
 
 const server = http.createServer((request, response) => {
+  response.setHeader('Content-Type', 'text/html; charset=utf-8');
   const maybeBr = request.headers['accept-encoding']
     ?.split(/\s*,\s*/)
     .includes('br')
