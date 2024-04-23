@@ -47,8 +47,7 @@ export default {
         options: {
           format: 'cjs',
           jsx: 'automatic',
-          jsxDev: !minify,
-          jsxImportSource: '#app/tbd',
+          jsxImportSource: 'vidore',
           loader: 'jsx',
           target
         }

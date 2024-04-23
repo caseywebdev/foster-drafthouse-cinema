@@ -1,18 +1,19 @@
+import { useEffect, useState } from 'vidore';
+
 import Ballot from '#app/components/ballot.js';
 import Logo from '#app/components/logo.svg';
 import Results from '#app/components/results.js';
 import config from '#app/config.js';
 import ws from '#app/constants/ws.js';
-import tbd from '#app/tbd/index.js';
 
 const { location } = globalThis;
 
 const { userId } = config;
 
 export default () => {
-  const [state, setState] = tbd.useState();
+  const [state, setState] = useState();
 
-  tbd.useEffect(() => {
+  useEffect(() => {
     const unsubscribe = ws.subscribe(setState);
     ws.send({ type: 'load' });
     return unsubscribe;

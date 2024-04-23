@@ -1,8 +1,9 @@
+import { useEffect, useState } from 'vidore';
+
 import config from '#app/config.js';
 import ws from '#app/constants/ws.js';
 import cx from '#app/functions/cx.js';
 import indexBy from '#app/functions/index-by.js';
-import tbd from '#app/tbd/index.js';
 
 const { document, window } = globalThis;
 
@@ -49,16 +50,16 @@ const User = ({ activeVoteIndex, user: { id, name, votes } }) =>
   );
 
 export default ({ state }) => {
-  const [isAccelerating, setIsAcelerating] = tbd.useState(0);
-  const [velocity, setVelocity] = tbd.useState(0);
-  const [position, setPosition] = tbd.useState(0);
+  const [isAccelerating, setIsAcelerating] = useState(0);
+  const [velocity, setVelocity] = useState(0);
+  const [position, setPosition] = useState(0);
   const allVotes = Object.values(state.usersById).flatMap(
     ({ id: userId, votes }) =>
       votes.map((movieId, index) => ({ userId, movieId, index }))
   );
   const activeVote = allVotes[Math.floor(position) % allVotes.length];
 
-  tbd.useEffect(() => {
+  useEffect(() => {
     document.addEventListener('touchstart', () => setIsAcelerating(true));
     document.addEventListener('touchend', () => setIsAcelerating(false));
     document.addEventListener('keydown', ({ key }) => {
@@ -69,7 +70,7 @@ export default ({ state }) => {
     });
   }, []);
 
-  tbd.useEffect(() => {
+  useEffect(() => {
     let _velocity = velocity;
     if (isAccelerating) {
       _velocity = Math.min(_velocity + acceleration, maxVelocity);

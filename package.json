@@ -23,12 +23,9 @@
     "livereload": "0.9",
     "lucide-static": "0",
     "tailwindcss": "3",
+    "vidore": "0",
     "watchy": "0.10",
     "ws": "8"
   },
-  "eslintConfig": {
-    "root": true,
-    "extends": "coderiety",
-    "settings": { "import/internal-regex": "^(api|app)/" }
-  }
+  "eslintConfig": { "root": true, "extends": "coderiety" }
 }
