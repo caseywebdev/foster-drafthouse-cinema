@@ -6,7 +6,9 @@ import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 import tailwindcss from 'tailwindcss';
 
-const { env } = globalThis.process;
+const { Buffer, process } = globalThis;
+
+const { env } = process;
 
 const exec = promisify(child_process.exec);
 const brotliCompress = promisify(zlib.brotliCompress);
@@ -25,20 +27,30 @@ export default {
   main: {
     transformers: [].concat(
       {
-        name: 'svgr',
+        name: 'svgo',
         only: '**/*.svg',
         options: {
-          jsxRuntime: 'automatic',
-          plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx'],
-          svgoConfig: {
-            plugins: [
-              'removeDimensions',
-              {
-                name: 'preset-default',
-                params: { overrides: { removeViewBox: false } }
-              }
-            ]
-          }
+          plugins: [
+            'removeDimensions',
+            {
+              name: 'preset-default',
+              params: { overrides: { removeViewBox: false } }
+            }
+          ]
+        }
+      },
+      {
+        only: '**/*.svg',
+        fn: ({ file: { buffer } }) => {
+          const svg = buffer.toString();
+          return {
+            buffer: Buffer.from(
+              [
+                `import { memo } from 'endr';`,
+                `export default memo(props => ${svg.replace(/(<svg .*?)>/, '$1 {...props}>')});`
+              ].join('\n')
+            )
+          };
         }
       },
       {
