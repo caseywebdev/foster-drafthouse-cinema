@@ -14,7 +14,7 @@ export default ({ user }) => (
       <input
         className={inputClassName}
         value={user.name}
-        onInput={({ target: { value } }) =>
+        oninput={({ target: { value } }) =>
           ws.send({ type: 'setUserName', args: { name: value } })
         }
       />

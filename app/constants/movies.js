@@ -20,17 +20,6 @@ export default [
     runtime: 93
   },
   {
-    id: 19101,
-    groups: ['main'],
-    watched: true,
-    posterUrl:
-      'https://image.tmdb.org/t/p/original/9V4bAVEskSNbEqjVI0YmeuB0n8I.jpg',
-    releaseDate: '1995-05-10',
-    tagline: 'Every girl everywhere is a princess.',
-    title: 'A Little Princess',
-    runtime: 97
-  },
-  {
     id: 377,
     groups: ['october'],
     posterUrl:

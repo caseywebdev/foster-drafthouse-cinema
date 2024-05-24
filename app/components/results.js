@@ -33,7 +33,7 @@ const User = ({ activeVoteIndex, user: { id, name, votes } }) =>
     <div className='flex-1 flex flex-col'>
       <div
         className='font-bold uppercase truncate text-center'
-        onDoubleClick={() => ws.send({ type: 'resetUserVotes', args: { id } })}
+        ondblclick={() => ws.send({ type: 'resetUserVotes', args: { id } })}
       >
         {name}
       </div>
