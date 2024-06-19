@@ -5,7 +5,7 @@ import ws from '#app/constants/ws.js';
 import cx from '#app/functions/cx.js';
 import indexBy from '#app/functions/index-by.js';
 
-const { document, window } = globalThis;
+const { document, requestAnimationFrame, window } = globalThis;
 
 const { movies } = config;
 
@@ -70,21 +70,23 @@ export default ({ state }) => {
     });
   }, []);
 
-  useEffect(() => {
-    let _velocity = velocity;
-    if (isAccelerating) {
-      _velocity = Math.min(_velocity + acceleration, maxVelocity);
-    } else {
-      _velocity *= drag;
-      if (velocity > 0 && _velocity < 0.004) {
-        _velocity = 0;
-        window.open(`https://www.themoviedb.org/movie/${activeVote.movieId}`);
+  useEffect(() =>
+    requestAnimationFrame(() => {
+      let _velocity = velocity;
+      if (isAccelerating) {
+        _velocity = Math.min(_velocity + acceleration, maxVelocity);
+      } else {
+        _velocity *= drag;
+        if (velocity > 0 && _velocity < 0.004) {
+          _velocity = 0;
+          window.open(`https://www.themoviedb.org/movie/${activeVote.movieId}`);
+        }
       }
-    }
 
-    setVelocity(_velocity);
-    setPosition(allVotes.length ? (position + _velocity) % allVotes.length : 0);
-  });
+      setVelocity(_velocity);
+      setPosition(allVotes.length ? (position + _velocity) % allVotes.length : 0);
+    })
+  );
 
   return (
     <div className='relative grow min-h-0 select-none'>
