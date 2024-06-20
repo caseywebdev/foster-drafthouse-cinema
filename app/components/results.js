@@ -70,7 +70,7 @@ export default ({ state }) => {
     });
   }, []);
 
-  useEffect(() =>
+  useEffect(() => {
     requestAnimationFrame(() => {
       let _velocity = velocity;
       if (isAccelerating) {
@@ -86,7 +86,7 @@ export default ({ state }) => {
       setVelocity(_velocity);
       setPosition(allVotes.length ? (position + _velocity) % allVotes.length : 0);
     })
-  );
+  });
 
   return (
     <div className='relative grow min-h-0 select-none'>
