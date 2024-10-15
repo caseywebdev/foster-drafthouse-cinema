@@ -13,13 +13,17 @@
     "cogs-transformer-underscore-template": "2",
     "cogs": "4",
     "cssnano": "7",
-    "endr": "0.0.21",
+    "endr": "0.0.52",
     "eslint-config-coderiety": "2",
-    "eslint": "9",
+    "eslint": "8",
     "livereload": "0.9",
     "tailwindcss": "3",
     "watchy": "0.10",
     "ws": "8"
   },
-  "eslintConfig": { "root": true, "extends": "coderiety" }
+  "eslintConfig": {
+    "root": true,
+    "extends": "coderiety",
+    "rules": { "react/no-unknown-property": "off" }
+  }
 }

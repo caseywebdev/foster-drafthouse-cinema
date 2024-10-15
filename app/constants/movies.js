@@ -15,7 +15,7 @@ export default [
     posterUrl:
       'https://image.tmdb.org/t/p/original/f3VITMLSmP3Ai65AvXT54RcF5Sw.jpg',
     releaseDate: '1983-11-18',
-    tagline: 'Peace, Harmony, Comfort and Joy... Maybe Next Year.',
+    tagline: 'Peace, Harmony, `Co`mfort and Joy... Maybe Next Year.',
     title: 'A Christmas Story',
     runtime: 93
   },
@@ -190,6 +190,26 @@ export default [
     runtime: 98
   },
   {
+    id: 14836,
+    groups: ['october'],
+    posterUrl:
+      'https://image.tmdb.org/t/p/original/4jeFXQYytChdZYE9JYO7Un87IlW.jpg',
+    releaseDate: '2009-02-05',
+    tagline: 'Be careful what you wish for.',
+    title: 'Coraline',
+    runtime: 100
+  },
+  {
+    id: 3933,
+    groups: ['october'],
+    posterUrl:
+      'https://image.tmdb.org/t/p/original/isb2Qow76GpqYmsSyfdMfsYAjts.jpg',
+    releaseDate: '2005-09-12',
+    tagline: "There's been a grave misunderstanding.",
+    title: 'Corpse Bride',
+    runtime: 77
+  },
+  {
     id: 924,
     groups: ['october'],
     posterUrl:
@@ -218,6 +238,16 @@ export default [
     tagline: 'Forty stories. Twelve terrorists. One cop.',
     title: 'Die Hard',
     runtime: 131
+  },
+  {
+    id: 70772,
+    groups: ['october'],
+    posterUrl:
+      'https://image.tmdb.org/t/p/original/hsa9gmUnaWPnsD7EBcsxqo1Rlze.jpg',
+    releaseDate: '1999-10-09',
+    tagline: 'This Halloween, whatever you do...',
+    title: "Don't Look Under the Bed",
+    runtime: 93
   },
   {
     id: 57789,
@@ -386,6 +416,16 @@ export default [
     runtime: 107
   },
   {
+    id: 257445,
+    groups: ['october'],
+    posterUrl:
+      'https://image.tmdb.org/t/p/original/aeZT9pqEgrmXOGdESFkAuVjX6kw.jpg',
+    releaseDate: '2015-08-05',
+    tagline: 'The stories are alive',
+    title: 'Goosebumps',
+    runtime: 103
+  },
+  {
     id: 927,
     groups: ['main', 'december'],
     posterUrl:
@@ -438,6 +478,26 @@ export default [
     runtime: 92
   },
   {
+    id: 721656,
+    groups: ['october'],
+    posterUrl:
+      'https://image.tmdb.org/t/p/original/5aL71e0XBgHZ6zdWcWeuEhwD2Gw.jpg',
+    releaseDate: '2020-10-06',
+    tagline: 'Scooby-Doo and Shaggy’s favorite holiday is upon us!',
+    title: 'Happy Halloween, Scooby-Doo!',
+    runtime: 77
+  },
+  {
+    id: 616747,
+    groups: ['october'],
+    posterUrl:
+      'https://image.tmdb.org/t/p/original/8Im6DknDVxRiGXc5t8rVOJyzuNx.jpg',
+    releaseDate: '2023-07-26',
+    tagline: 'Home is where the haunt is.',
+    title: 'Haunted Mansion',
+    runtime: 123
+  },
+  {
     id: 14819,
     groups: ['main'],
     posterUrl:
@@ -457,6 +517,16 @@ export default [
     tagline: "It's just a bunch of Hocus Pocus.",
     title: 'Hocus Pocus',
     runtime: 96
+  },
+  {
+    id: 642885,
+    groups: ['october'],
+    posterUrl:
+      'https://image.tmdb.org/t/p/original/7ze7YNmUaX81ufctGqt0AgHxRtL.jpg',
+    releaseDate: '2024-10-06',
+    tagline: 'Back and more glorious than ever.',
+    title: 'Hocus Pocus 2',
+    runtime: 107
   },
   {
     id: 771,
@@ -497,6 +567,16 @@ export default [
     tagline: 'What if Peter Pan grew up?',
     title: 'Hook',
     runtime: 142
+  },
+  {
+    id: 76492,
+    groups: ['october'],
+    posterUrl:
+      'https://image.tmdb.org/t/p/original/eJGvzGrsfe2sqTUPv5IwLWXjVuR.jpg',
+    releaseDate: '2012-09-20',
+    tagline: 'Even monsters need a vacation',
+    title: 'Hotel Transylvania',
+    runtime: 91
   },
   {
     id: 8871,
@@ -635,6 +715,16 @@ export default [
     runtime: 114
   },
   {
+    id: 11774,
+    groups: ['october'],
+    posterUrl:
+      'https://image.tmdb.org/t/p/original/r7S57FpBsCljWc9fBUo2Iy5XGew.jpg',
+    releaseDate: '2004-12-16',
+    tagline: 'Mishaps. Misadventures. Mayhem. Oh joy.',
+    title: "Lemony Snicket's A Series of Unfortunate Events",
+    runtime: 108
+  },
+  {
     id: 941,
     groups: ['main'],
     posterUrl:
@@ -688,6 +778,16 @@ export default [
     runtime: 114
   },
   {
+    id: 9297,
+    groups: ['october'],
+    posterUrl:
+      'https://image.tmdb.org/t/p/original/r4BrEpGD2OlOTHvVwy0lXzxAGqs.jpg',
+    releaseDate: '2006-06-30',
+    tagline: 'There goes the neighborhood.',
+    title: 'Monster House',
+    runtime: 91
+  },
+  {
     id: 762,
     groups: ['main'],
     posterUrl:
@@ -739,6 +839,16 @@ export default [
     tagline: 'All the fun of college, none of the education.',
     title: 'Old School',
     runtime: 88
+  },
+  {
+    id: 77174,
+    groups: ['october'],
+    posterUrl:
+      'https://image.tmdb.org/t/p/original/9DZPtuYTKYxt6vzHvZ5FLThG4fl.jpg',
+    releaseDate: '2012-08-03',
+    tagline: "It's all fun and games until someone raises the dead.",
+    title: 'ParaNorman',
+    runtime: 90
   },
   {
     id: 23827,
@@ -805,6 +915,16 @@ export default [
     runtime: 135
   },
   {
+    id: 531219,
+    groups: ['october'],
+    posterUrl:
+      'https://image.tmdb.org/t/p/original/ht6EfsM5hrsUPSR4ReJQFDVU71F.jpg',
+    releaseDate: '2020-10-26',
+    tagline: "They're real!",
+    title: "Roald Dahl's The Witches",
+    runtime: 106
+  },
+  {
     id: 1366,
     groups: ['main'],
     posterUrl:
@@ -855,6 +975,16 @@ export default [
     tagline: 'Live or die. Make your choice.',
     title: 'Saw',
     runtime: 103
+  },
+  {
+    id: 48466,
+    groups: ['october'],
+    posterUrl:
+      'https://image.tmdb.org/t/p/original/aAQQJhX8NqKZ7ZNDUPQQKi1wK8h.jpg',
+    releaseDate: '2010-10-28',
+    tagline: '',
+    title: 'Scared Shrekless',
+    runtime: 21
   },
   {
     id: 4247,
@@ -951,6 +1081,16 @@ export default [
     runtime: 96
   },
   {
+    id: 54408,
+    groups: ['october'],
+    posterUrl:
+      'https://image.tmdb.org/t/p/original/zpT1hiWA2Z2PlAb2QvEjl6GubW8.jpg',
+    releaseDate: '2004-10-30',
+    tagline: 'Dare to be Square!',
+    title: 'Spookley the Square Pumpkin',
+    runtime: 47
+  },
+  {
     id: 235,
     groups: ['main'],
     posterUrl:
@@ -1013,6 +1153,16 @@ export default [
     tagline: 'Never Forget. Never Forgive.',
     title: 'Sweeney Todd: The Demon Barber of Fleet Street',
     runtime: 116
+  },
+  {
+    id: 481084,
+    groups: ['october'],
+    posterUrl:
+      'https://image.tmdb.org/t/p/original/q1epO0eO8DWu8Vo8tPfvVlzW48T.jpg',
+    releaseDate: '2019-10-10',
+    tagline: 'Think your family is weird?',
+    title: 'The Addams Family',
+    runtime: 86
   },
   {
     id: 2907,
@@ -1118,6 +1268,16 @@ export default [
     runtime: 136
   },
   {
+    id: 463821,
+    groups: ['october'],
+    posterUrl:
+      'https://image.tmdb.org/t/p/original/qM66Hv4ByAxnilr0jaqCA9uOD4Y.jpg',
+    releaseDate: '2018-09-15',
+    tagline: 'This house knows what makes you tick.',
+    title: 'The House with a Clock in Its Walls',
+    runtime: 105
+  },
+  {
     id: 10897,
     groups: ['main'],
     posterUrl:
@@ -1126,6 +1286,16 @@ export default [
     tagline: 'Mischief loves company.',
     title: 'The Little Rascals',
     runtime: 82
+  },
+  {
+    id: 24100,
+    groups: ['october'],
+    posterUrl:
+      'https://image.tmdb.org/t/p/original/zBGfZGKX3KJnljxsX6r24lzRe0i.jpg',
+    releaseDate: '2000-10-27',
+    tagline: "They're not just best friends, they're blood brothers.",
+    title: 'The Little Vampire',
+    runtime: 95
   },
   {
     id: 34584,
@@ -1343,6 +1513,16 @@ export default [
     tagline: "They're not just getting rich... They're getting even.",
     title: 'Trading Places',
     runtime: 116
+  },
+  {
+    id: 763873,
+    groups: ['october'],
+    posterUrl:
+      'https://image.tmdb.org/t/p/original/2EnHRyHdboUWz120LDiAk2M2Lgc.jpg',
+    releaseDate: '2021-10-01',
+    tagline: '',
+    title: 'Under Wraps',
+    runtime: 91
   },
   {
     id: 14709,

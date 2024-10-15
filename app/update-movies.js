@@ -24,7 +24,7 @@ for (let movie of savedMovies) {
       throw new Error(`${JSON.stringify(data)} does not have a title value`);
     }
 
-    console.log(`Fetched ${movie.title}`);
+    console.log(`Fetched ${data.title}`);
     movie = {
       ...movie,
       posterUrl: posterUrlBase + data.poster_path,

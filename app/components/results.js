@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'endr';
+import { useEffect, useRef, useState } from 'endr';
 
 import config from '#app/config.js';
 import ws from '#app/constants/ws.js';
@@ -50,6 +50,7 @@ const User = ({ activeVoteIndex, user: { id, name, votes } }) =>
   );
 
 export default ({ state }) => {
+  const rafRef = useRef(undefined);
   const [isAccelerating, setIsAcelerating] = useState(0);
   const [velocity, setVelocity] = useState(0);
   const [position, setPosition] = useState(0);
@@ -71,7 +72,8 @@ export default ({ state }) => {
   }, []);
 
   useEffect(() => {
-    requestAnimationFrame(() => {
+    cancelAnimationFrame(rafRef.current);
+    rafRef.current = requestAnimationFrame(() => {
       let _velocity = velocity;
       if (isAccelerating) {
         _velocity = Math.min(_velocity + acceleration, maxVelocity);
@@ -84,8 +86,10 @@ export default ({ state }) => {
       }
 
       setVelocity(_velocity);
-      setPosition(allVotes.length ? (position + _velocity) % allVotes.length : 0);
-    })
+      setPosition(
+        allVotes.length ? (position + _velocity) % allVotes.length : 0
+      );
+    });
   });
 
   return (

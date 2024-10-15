@@ -24,9 +24,12 @@ const createWs = () => {
   });
 
   _ws.addEventListener('close', () => {
-    setTimeout(() => {
-      ws = createWs();
-    }, Math.min(reconnectWait * 2 ** reconnectAttempts++, reconnectMaxWait));
+    setTimeout(
+      () => {
+        ws = createWs();
+      },
+      Math.min(reconnectWait * 2 ** reconnectAttempts++, reconnectMaxWait)
+    );
   });
 
   return _ws;
