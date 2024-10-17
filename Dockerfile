@@ -1,4 +1,4 @@
-FROM node:22.8.0-alpine3.20
+FROM node:23.0.0-alpine3.20
 
 WORKDIR /code
 
