@@ -871,6 +871,17 @@ export default [
     runtime: 114
   },
   {
+    id: 6435,
+    groups: ['october'],
+    posterUrl:
+      'https://image.tmdb.org/t/p/original/AwmToSgf2IL3aHv0QRVsR5KvChv.jpg',
+    releaseDate: '1998-10-16',
+    tagline:
+      'For two sisters from a family of witches, falling in love is the trickiest spell of all.',
+    title: 'Practical Magic',
+    runtime: 104
+  },
+  {
     id: 24951,
     groups: ['december'],
     posterUrl:
@@ -1155,16 +1166,6 @@ export default [
     runtime: 116
   },
   {
-    id: 481084,
-    groups: ['october'],
-    posterUrl:
-      'https://image.tmdb.org/t/p/original/q1epO0eO8DWu8Vo8tPfvVlzW48T.jpg',
-    releaseDate: '2019-10-10',
-    tagline: 'Think your family is weird?',
-    title: 'The Addams Family',
-    runtime: 86
-  },
-  {
     id: 2907,
     groups: ['october'],
     posterUrl:
@@ -1173,6 +1174,16 @@ export default [
     tagline: 'Weird Is Relative',
     title: 'The Addams Family',
     runtime: 102
+  },
+  {
+    id: 481084,
+    groups: ['october'],
+    posterUrl:
+      'https://image.tmdb.org/t/p/original/q1epO0eO8DWu8Vo8tPfvVlzW48T.jpg',
+    releaseDate: '2019-10-10',
+    tagline: 'Think your family is weird?',
+    title: 'The Addams Family',
+    runtime: 86
   },
   {
     id: 11449,
